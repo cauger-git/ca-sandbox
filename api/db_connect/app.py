@@ -15,6 +15,8 @@ def login_db():
     global TABLE_META
     db_user = os.environ['DB_USER']
     db_pass = os.environ['DB_PASS']
+    print("User: " + db_user)
+    print("Pass: " + db_pass)
     db_string = "oracle://" + db_user + ":" + db_pass + "@stsorau.IC.GC.CA:1521/uat01ls"
     db_engine = create_engine(db_string)
     db_session = sessionmaker(bind=db_engine)
