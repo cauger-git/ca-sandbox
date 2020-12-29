@@ -18,7 +18,7 @@ def login_db():
     print("User: " + db_user)
     print("Pass: " + db_pass)
     #db_string = "oracle://" + os.environ['DB_USER'] + ":" + os.environ['DB_PASS'] + "@stsorau.IC.GC.CA:1521/uat01ls"
-    db_string = "oracle://" + os.environ['DB_USER'] + ":" + "badpass" + "@stsorau.IC.GC.CA:1521/uat01ls"
+    db_string = "oracle://" + os.environ['DB_USER'] + ":" + "badpass" + "@stsorau55555.IC.GC.CA:1521/uat01ls"
     db_engine = create_engine(db_string)
     db_session = sessionmaker(bind=db_engine)
     #TABLE_META = MetaData(db_engine, schema="mini_spectra")
