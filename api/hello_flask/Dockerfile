@@ -15,7 +15,3 @@ RUN python -m pip install -r requirements.txt
 
 WORKDIR /app
 COPY . /app
-
-# Switching to a non-root user, please refer to https://aka.ms/vscode-docker-python-user-rights
-RUN useradd appuser && chown -R appuser /app
-USER appuser
