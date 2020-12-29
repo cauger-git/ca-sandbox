@@ -3,7 +3,7 @@ import json
 import simplejson
 from flask import Flask
 from flask.json import jsonify
-import psycopg2
+import cx_Oracle
 from sqlalchemy import create_engine, MetaData, Table
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.sql.schema import Column
@@ -17,7 +17,7 @@ def login_db():
     db_pass = os.environ['DB_PASS']
     print("User: " + db_user)
     print("Pass: " + db_pass)
-    db_string = "oracle://" + db_user + ":" + db_pass + "@stsorau.IC.GC.CA:1521/uat01ls"
+    db_string = "oracle://" + os.environ['DB_USER'] + ":" + os.environ['DB_PASS'] + "@stsorau.IC.GC.CA:1521/uat01ls"
     db_engine = create_engine(db_string)
     db_session = sessionmaker(bind=db_engine)
     #TABLE_META = MetaData(db_engine, schema="mini_spectra")
