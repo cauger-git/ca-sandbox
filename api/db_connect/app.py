@@ -18,7 +18,7 @@ def login_db():
     db_string = "oracle://" + os.environ['DB_USER'] + ":" + os.environ['DB_PASS'] + "@stsorau.IC.GC.CA:1521/uat01ls"
     db_engine = create_engine(db_string)
     db_session = sessionmaker(bind=db_engine)
-    #TABLE_META = MetaData(db_engine, schema="mini_spectra")
+    TABLE_META = MetaData(db_engine, schema="EMC")
     return db_session()
 
 @app.route('/')
@@ -26,6 +26,17 @@ def index():
     
     # Login to database
     db_session = login_db()
+
+    # Map the first 3 columns of the TX_RES_TAB table
+    tx_res_tab = Table('TX_RES_TAB', TABLE_META, 
+                            Column('TX_RES_ID', Numeric, nullable=False),
+                            Column('ACD_ACD_ID', Numeric, nullable=True),
+                            Column('TX_RES_STATE', String, nullable=True))
+    
+    # Count the rows
+    results = db_session.query(tx_res_tab).count()
+
+    print("Table has " + str(results) + " rows")
 
     return 'Connected to DB'
 
