@@ -21,8 +21,7 @@ RUN mkdir /opt/oracle && \
     ldconfig
 
 # Install additional library required by Oracle
-#RUN apt-get install libaio-dev
-RUN yum install libaio
+RUN apt-get install libaio-dev
 
 # Install pip requirements
 COPY requirements.txt .
