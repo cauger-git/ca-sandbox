@@ -39,5 +39,3 @@ def index():
     print("Table has " + str(results) + " rows")
 
     return 'Connected to DB'
-
-#app.run(host='0.0.0.0', port=8080)

@@ -21,8 +21,6 @@ RUN mkdir /opt/oracle && \
     ldconfig
 
 # Install additional library required by Oracle
-#RUN apt-get install libaio1
-#RUN apt-get install libaio-dev
 RUN apt-get update && \
     apt-get -y install libaio-dev
 
