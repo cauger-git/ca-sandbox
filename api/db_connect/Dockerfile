@@ -24,7 +24,7 @@ RUN mkdir /opt/oracle && \
 #RUN apt-get install libaio1
 #RUN apt-get install libaio-dev
 RUN apt-get update && \
-    apt-get install libaio-dev
+    apt-get -y install libaio-dev
 
 # Install pip requirements
 COPY requirements.txt .
