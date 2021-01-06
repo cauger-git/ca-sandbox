@@ -20,6 +20,9 @@ RUN mkdir /opt/oracle && \
     echo /opt/oracle/instantclient* > /etc/ld.so.conf.d/oracle-instantclient.conf && \
     ldconfig
 
+# Install additional library required by Oracle
+RUN apt-get install libaio1
+
 # Install pip requirements
 COPY requirements.txt .
 RUN python -m pip install -r requirements.txt
