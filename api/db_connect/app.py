@@ -34,8 +34,10 @@ def index():
                             Column('TX_RES_STATE', String, nullable=True))
     
     # Count the rows
-    results = db_session.query(tx_res_tab).count()
+    count = db_session.query(tx_res_tab).count()
 
-    print("Table has " + str(results) + " rows")
+    result = "Table TX_RES_COUNT has " + count + " rows" 
 
-    return 'Connected to DB'
+    #print("Table has " + str(results) + " rows")
+
+    return result
