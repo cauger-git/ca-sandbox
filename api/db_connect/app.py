@@ -36,7 +36,7 @@ def index():
     # Count the rows
     count = db_session.query(tx_res_tab).count()
 
-    result = "Table TX_RES_COUNT has " + count + " rows" 
+    result = "Table TX_RES_COUNT has " + str(count) + " rows" 
 
     #print("Table has " + str(results) + " rows")
 
